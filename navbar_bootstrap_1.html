@@ -78,9 +78,9 @@
     </div>
     <!--------------------------- side navbar div above --------------------------------->
 
-    <!--------------------------- dark background div below ----------------------------->
-    <div id="dark-background-div" class="fixed-top fixed-bottom bg-dark opacity-50" style="z-index:10;display:none;"></div>
-    <!--------------------------- dark background div above ----------------------------->
+    <!--------------------------- navbar dark background div below ----------------------------->
+    <div id="navbar-dark-background-div" class="fixed-top fixed-bottom bg-dark opacity-50" style="z-index:10;display:none;"></div>
+    <!--------------------------- navbar dark background div above ----------------------------->
 
     <!--------------------------- page content div below ----------------------------->
     <div class="container">
@@ -93,12 +93,12 @@
         function open_side_navbar() {
             if (document.getElementById('side-navbar-div').style.left == '-300px') {
                 document.getElementById('side-navbar-div').style.left = '0px';
-                document.getElementById('dark-background-div').style.display = 'block';
+                document.getElementById('navbar-dark-background-div').style.display = 'block';
                 document.getElementsByClassName('menu-icon')[0].style.display='none';
                 document.getElementsByClassName('cancel-icon')[0].style.display='inline';
             } else {
                 document.getElementById('side-navbar-div').style.left = '-300px';
-                document.getElementById('dark-background-div').style.display = 'none';
+                document.getElementById('navbar-dark-background-div').style.display = 'none';
                 document.getElementsByClassName('menu-icon')[0].style.display='inline';
                 document.getElementsByClassName('cancel-icon')[0].style.display='none';
             }
