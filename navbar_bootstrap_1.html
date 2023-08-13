@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <!--------------------------- top navbar div below --------------------------------->
+    <div class="fixed-top bg-light px-3" style="height:70px;z-index:20;line-height:70px">
+        <i class="bi bi-list fs-1 menu-icon text-primary border-2 border-primary border rounded-1 fw-bold px-1" style="vertical-align:text-bottom;" onclick="open_side_navbar();"></i>
+        <i class="bi bi-x-lg fs-1 cancel-icon text-primary border-2 border-primary border rounded-1 fw-bold px-1" style="vertical-align:text-bottom;display:none" onclick="open_side_navbar();"></i>
+        <span class="fs-4 px-3 text-primary" style="vertical-align:text-bottom;">Admin Panel</span>
+        <!---------- code to show only few menu options in top navbar below------------->
+        <a href="#" class="px-3 text-decoration-none text-primary d-none d-md-inline" style="vertical-align:text-bottom;">Login</a>
+        <a href="#" class="px-3 text-decoration-none text-primary d-none d-md-inline" style="vertical-align:text-bottom;">OTP Login</a>
+        <a href="#" class="px-3 text-decoration-none text-primary d-none d-md-inline" style="vertical-align:text-bottom;">Forgot Password</a>
+        <!---------- code to show only few menu options in top navbar below------------->
+    </div>
+    <!--------------------------- top navbar div above --------------------------------->
+
+    <!--------------------------- side navbar div below --------------------------------->
+    <div id="side-navbar-div" class="fixed-top fixed-bottom bg-light border-top overflow-y-auto" style="margin-top:70px;z-index:20;width:300px;left:-300px;transition-duration:0.5s;">
+        <ul class="list-unstyled">
+            <li class="my-3 text-center">
+                <img src="images/logo.jpg" class="rounded-1" style="width:100px;height:100px">
+            </li>
+            <li class="my-3 px-3 text-center">
+                <a href="index.php" class="text-decoration-none text-primary">Shine Trading Company</a>
+                <hr class="w-75 mx-auto">
+            </li>
+            <li class="my-3 px-3">
+                <a href="#" class="text-decoration-none text-primary">Login</a>
+            </li>
+            <li class="my-3 px-3">
+                <a href="#" class="text-decoration-none text-primary">OTP Login</a>
+            </li>
+            <li class="my-3 px-3">
+                <a href="#" class="text-decoration-none text-primary">Forgot Password</a>
+            </li>
+            <li class="my-3 px-3" onclick="open_submenu(this);"> 
+                <i class="bi bi-chevron-down down-icon text-primary" style="display:none;"></i>
+                <i class="bi bi-chevron-right right-icon text-primary"></i>
+                <a href="#" class="text-decoration-none text-primary">Options</a>
+                <ul class="list-unstyled" style="display:none;">
+                    <li class="my-3 ps-5 pe-3">
+                        <a href="#" class="text-decoration-none text-info">Option 1</a>
+                    </li>
+                    <li class="my-3 ps-5 pe-3">
+                        <a href="#" class="text-decoration-none text-info">Option 2</a>
+                    </li>
+                    <li class="my-3 ps-5 pe-3">
+                        <a href="#" class="text-decoration-none text-info">Option 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="my-3 px-3" onclick="open_submenu(this);"> 
+                <i class="bi bi-chevron-down down-icon text-primary" style="display:none;"></i>
+                <i class="bi bi-chevron-right right-icon text-primary"></i>
+                <a href="#" class="text-decoration-none text-primary">Options</a>
+                <ul class="list-unstyled" style="display:none;">
+                    <li class="my-3 ps-5 pe-3">
+                        <a href="#" class="text-decoration-none text-info">Option 1</a>
+                    </li>
+                    <li class="my-3 ps-5 pe-3">
+                        <a href="#" class="text-decoration-none text-info">Option 2</a>
+                    </li>
+                    <li class="my-3 ps-5 pe-3">
+                        <a href="#" class="text-decoration-none text-info">Option 3</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--------------------------- side navbar div above --------------------------------->
+
+    <!--------------------------- dark background div below ----------------------------->
+    <div id="dark-background-div" class="fixed-top fixed-bottom bg-dark opacity-50" style="z-index:10;display:none;"></div>
+    <!--------------------------- dark background div above ----------------------------->
+
+    <!--------------------------- page content div below ----------------------------->
+    <div class="container">
+        
+    </div>
+    <!--------------------------- page content div above ----------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        //----------------------- function to open side navbar below ----------------//
+        function open_side_navbar() {
+            if (document.getElementById('side-navbar-div').style.left == '-300px') {
+                document.getElementById('side-navbar-div').style.left = '0px';
+                document.getElementById('dark-background-div').style.display = 'block';
+                document.getElementsByClassName('menu-icon')[0].style.display='none';
+                document.getElementsByClassName('cancel-icon')[0].style.display='inline';
+            } else {
+                document.getElementById('side-navbar-div').style.left = '-300px';
+                document.getElementById('dark-background-div').style.display = 'none';
+                document.getElementsByClassName('menu-icon')[0].style.display='inline';
+                document.getElementsByClassName('cancel-icon')[0].style.display='none';
+            }
+        }
+        //----------------------- function to open side navbar above ----------------//
+
+        //----------------------- function to open submenu below --------------------//
+        function open_submenu(element){
+            var sub_menu_ul_array=element.getElementsByTagName('ul');
+            var right_icon_array=element.getElementsByClassName('right-icon');
+            var down_icon_array=element.getElementsByClassName('down-icon');
+            console.log(sub_menu_ul_array[0]);
+            if(sub_menu_ul_array[0].style.display=='none'){
+                sub_menu_ul_array[0].style.display='block';
+                down_icon_array[0].style.display='inline';
+                right_icon_array[0].style.display='none';
+            }
+            else{
+                sub_menu_ul_array[0].style.display='none';
+                down_icon_array[0].style.display='none';
+                right_icon_array[0].style.display='inline';
+            }
+        }
+        //----------------------- function to open submenu above --------------------//
+    </script>
+</body>
+
+</html>
