@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <!--------------------------- top navbar div below --------------------------------->
     <div class="fixed-top bg-light px-3" style="height:70px;z-index:20;line-height:70px">
         <i class="bi bi-list fs-1 menu-icon text-primary border-2 border-primary border rounded-1 fw-bold px-1" style="vertical-align:text-bottom;" onclick="open_side_navbar();"></i>
@@ -42,10 +43,12 @@
             <li class="my-3 px-3">
                 <a href="#" class="text-decoration-none text-primary">Forgot Password</a>
             </li>
-            <li class="my-3 px-3" onclick="open_submenu(this);"> 
-                <i class="bi bi-chevron-down down-icon text-primary" style="display:none;"></i>
-                <i class="bi bi-chevron-right right-icon text-primary"></i>
-                <a href="#" class="text-decoration-none text-primary">Options</a>
+            <li class="my-3 px-3">
+                <span onclick="open_submenu(this);">
+                    <i class="bi bi-chevron-down down-icon text-primary" style="display:none;"></i>
+                    <i class="bi bi-chevron-right right-icon text-primary"></i>
+                    <a href="#" class="text-decoration-none text-primary">Options</a>
+                </span>
                 <ul class="list-unstyled" style="display:none;">
                     <li class="my-3 ps-5 pe-3">
                         <a href="#" class="text-decoration-none text-info">Option 1</a>
@@ -58,10 +61,12 @@
                     </li>
                 </ul>
             </li>
-            <li class="my-3 px-3" onclick="open_submenu(this);"> 
-                <i class="bi bi-chevron-down down-icon text-primary" style="display:none;"></i>
-                <i class="bi bi-chevron-right right-icon text-primary"></i>
-                <a href="#" class="text-decoration-none text-primary">Options</a>
+            <li class="my-3 px-3">
+                <span onclick="open_submenu(this);">
+                    <i class="bi bi-chevron-down down-icon text-primary" style="display:none;"></i>
+                    <i class="bi bi-chevron-right right-icon text-primary"></i>
+                    <a href="#" class="text-decoration-none text-primary">Options</a>
+                </span>
                 <ul class="list-unstyled" style="display:none;">
                     <li class="my-3 ps-5 pe-3">
                         <a href="#" class="text-decoration-none text-info">Option 1</a>
@@ -83,43 +88,43 @@
     <!--------------------------- navbar dark background div above ----------------------------->
 
     <!--------------------------- page content div below ----------------------------->
-    <div class="container">
-        
+    <div class="container" style="margin-top:100px;">
+
     </div>
     <!--------------------------- page content div above ----------------------------->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
     <script>
         //----------------------- function to open side navbar below ----------------//
         function open_side_navbar() {
             if (document.getElementById('side-navbar-div').style.left == '-300px') {
                 document.getElementById('side-navbar-div').style.left = '0px';
                 document.getElementById('navbar-dark-background-div').style.display = 'block';
-                document.getElementsByClassName('menu-icon')[0].style.display='none';
-                document.getElementsByClassName('cancel-icon')[0].style.display='inline';
+                document.getElementsByClassName('menu-icon')[0].style.display = 'none';
+                document.getElementsByClassName('cancel-icon')[0].style.display = 'inline';
             } else {
                 document.getElementById('side-navbar-div').style.left = '-300px';
                 document.getElementById('navbar-dark-background-div').style.display = 'none';
-                document.getElementsByClassName('menu-icon')[0].style.display='inline';
-                document.getElementsByClassName('cancel-icon')[0].style.display='none';
+                document.getElementsByClassName('menu-icon')[0].style.display = 'inline';
+                document.getElementsByClassName('cancel-icon')[0].style.display = 'none';
             }
         }
         //----------------------- function to open side navbar above ----------------//
 
         //----------------------- function to open submenu below --------------------//
-        function open_submenu(element){
-            var sub_menu_ul_array=element.getElementsByTagName('ul');
-            var right_icon_array=element.getElementsByClassName('right-icon');
-            var down_icon_array=element.getElementsByClassName('down-icon');
-            console.log(sub_menu_ul_array[0]);
-            if(sub_menu_ul_array[0].style.display=='none'){
-                sub_menu_ul_array[0].style.display='block';
-                down_icon_array[0].style.display='inline';
-                right_icon_array[0].style.display='none';
-            }
-            else{
-                sub_menu_ul_array[0].style.display='none';
-                down_icon_array[0].style.display='none';
-                right_icon_array[0].style.display='inline';
+        function open_submenu(element) {
+            var sub_menu_ul = element.nextElementSibling;
+            var right_icon = element.getElementsByClassName('right-icon')[0];
+            var down_icon = element.getElementsByClassName('down-icon')[0];
+            if (sub_menu_ul.style.display == 'none') {
+                sub_menu_ul.style.display = 'block';
+                down_icon.style.display = 'inline';
+                right_icon.style.display = 'none';
+            } else {
+                sub_menu_ul.style.display = 'none';
+                down_icon.style.display = 'none';
+                right_icon.style.display = 'inline';
             }
         }
         //----------------------- function to open submenu above --------------------//
